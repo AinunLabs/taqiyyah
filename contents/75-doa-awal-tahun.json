@@ -1,9 +1,20 @@
 {
-  "name": "Do'a Awal Tahun",
-  "content": {
-    "ar": "اَللّٰهُمَّ اَنْتَ الْاَ بَدِىُّ الْقَدِيْمُ الْاَ وَّلُ وَعَلَى فَضِلِكَ الْعَظِيْمِ وَجُوْدِكَ الْمُؤَوَّلِ. وَهٰذَاعَامٌ جَدِيْدٌقَدْاَقْبَلَ. نَسْأَلُكَ الْعِصْمَةَ فِيْهِ مِنَ الشَّيْطَانِ وَاَوْلِيَاءِهٖ وَجُنُوْدِهٖ وَالْعَوْنَ عَلٰى هٰذِهِ النَّفْسِ الْاَ مَّارَةِ بِالسُّوْءِوَالْاِ شْتِغَالَ بِمَايُقَرِّبُنِىْ اِلَيْكَ زُلْفٰى يَاذَاالْجَلاَلِ وَالْاِ كْرَامِ",
-    "id": "Wahai Allah! engkaulah Dzat Yang Abadi, Yang Terdahulu, Yang Mula-mula. Atas anugerah Engkau yang besar dan kemurahan Engkau yang dijadikan pegangan, inilah tahun baru telah datang. Kami memohon kepada Engkau pemeliharaan selama setahun ini dari setan, sahabat-sahabat dan pasukannya, dan pertolongan untuk melawan nafsuku ini yang selalu mengajak kepada kejahatan, serta sibuk dalam melakukan amal yang dapat mendekatkan diriku kepada Engkau sedekat-dekatnya, wahai Dzat yang memiliki kebesaran dan kemuliaan."
-  },
+  "title": [
+    {
+      "lang": "id",
+      "value": "Do'a Awal Tahun"
+    }
+  ],
+  "content": [
+    {
+      "lang": "ar",
+      "value": "اَللّٰهُمَّ اَنْتَ الْاَ بَدِىُّ الْقَدِيْمُ الْاَ وَّلُ وَعَلَى فَضِلِكَ الْعَظِيْمِ وَجُوْدِكَ الْمُؤَوَّلِ. وَهٰذَاعَامٌ جَدِيْدٌقَدْاَقْبَلَ. نَسْأَلُكَ الْعِصْمَةَ فِيْهِ مِنَ الشَّيْطَانِ وَاَوْلِيَاءِهٖ وَجُنُوْدِهٖ وَالْعَوْنَ عَلٰى هٰذِهِ النَّفْسِ الْاَ مَّارَةِ بِالسُّوْءِوَالْاِ شْتِغَالَ بِمَايُقَرِّبُنِىْ اِلَيْكَ زُلْفٰى يَاذَاالْجَلاَلِ وَالْاِ كْرَامِ"
+    },
+    {
+      "lang": "id",
+      "value": "Wahai Allah! engkaulah Dzat Yang Abadi, Yang Terdahulu, Yang Mula-mula. Atas anugerah Engkau yang besar dan kemurahan Engkau yang dijadikan pegangan, inilah tahun baru telah datang. Kami memohon kepada Engkau pemeliharaan selama setahun ini dari setan, sahabat-sahabat dan pasukannya, dan pertolongan untuk melawan nafsuku ini yang selalu mengajak kepada kejahatan, serta sibuk dalam melakukan amal yang dapat mendekatkan diriku kepada Engkau sedekat-dekatnya, wahai Dzat yang memiliki kebesaran dan kemuliaan."
+    }
+  ],
   "number": 75,
   "source": "http://belajarbacaandoa.com/2017/06/bacaan-doa-awal-tahun-hijriyah-arab-dan-latin-lengkap-dengan-artinya.html"
 }
