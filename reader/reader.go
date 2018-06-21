@@ -22,6 +22,16 @@ type Content struct {
 	Value string `json:"value"`
 }
 
+func (amaliah AmaliahItem) String() string {
+	bytes, err := json.Marshal(amaliah)
+
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	return string(bytes)
+}
+
 // ReadFromFile to read source from json file
 func ReadFromFile(s string) AmaliahItem {
 	var result AmaliahItem
