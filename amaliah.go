@@ -3,14 +3,15 @@ package amaliah
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"log"
-	"os"
 	"strconv"
 	"strings"
+
+	"github.com/taqiyyah/amaliah/resources"
 )
 
 const contentsDir string = "contents"
+
+var contents map[int]AmaliahContent
 
 // AmaliahContent struct
 type AmaliahContent struct {
@@ -34,82 +35,37 @@ type Content struct {
 	Value string `json:"value"`
 }
 
-func (amaliah Amaliah) String() string {
-	bytes, err := json.Marshal(amaliah)
-
+func init() {
+	contents = make(map[int]AmaliahContent)
+	data, err := resources.AssetDir(contentsDir)
 	if err != nil {
-		fmt.Println(err.Error())
+		fmt.Println(err)
 	}
 
-	return string(bytes)
+	for _, filename := range data {
+		fSlice := strings.Split(filename, "-")
+		num, _ := strconv.Atoi(fSlice[0])
+		path := fmt.Sprintf("%s/%s", contentsDir, filename)
+
+		contents[num] = AmaliahContent{
+			Number:   num,
+			Filename: filename,
+			Path:     path,
+		}
+	}
 }
 
 // All method to get all amaliah content
 func All() []Amaliah {
 	var results []Amaliah
-	contentProperties := getContentFiles(contentsDir)
 
-	for _, contentProperty := range contentProperties {
-		amaliah := readFromFile(contentProperty.Path)
+	for _, content := range contents {
+		var amaliah Amaliah
+		byteValue, _ := resources.Asset(content.Path)
+		json.Unmarshal(byteValue, &amaliah)
+
 		results = append(results, amaliah)
 	}
 
 	return results
-}
-
-// Get one amaliah content by number
-func Get(num int) Amaliah {
-	contentProperties := getContentFiles(contentsDir)
-
-	result := readFromFile(contentProperties[num].Path)
-
-	return result
-}
-
-func getContentFiles(baseDir string) map[int]AmaliahContent {
-	results := make(map[int]AmaliahContent)
-
-	f, err := os.Open(fmt.Sprintf("./%s", baseDir))
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	files, err := f.Readdir(-1)
-	f.Close()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	for _, file := range files {
-		sSlice := strings.Split(file.Name(), "-")
-		num, _ := strconv.Atoi(sSlice[0])
-
-		results[num] = AmaliahContent{
-			Number:   num,
-			Filename: file.Name(),
-			Path:     fmt.Sprintf("%s/%s", baseDir, file.Name()),
-		}
-	}
-
-	return results
-}
-
-func readFromFile(filepath string) Amaliah {
-	var result Amaliah
-	// open json file
-	jsonFile, err := os.Open(filepath)
-
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-
-	// defer the closing of our jsonFile so that we can parse it later on
-	defer jsonFile.Close()
-
-	// read opened xmlFile as a byte array.
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-
-	json.Unmarshal(byteValue, &result)
-
-	return result
 }
