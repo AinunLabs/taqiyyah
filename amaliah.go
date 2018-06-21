@@ -12,8 +12,8 @@ import (
 
 const contentsDir string = "contents"
 
-// AmaliahFile struct
-type AmaliahFile struct {
+// AmaliahContent struct
+type AmaliahContent struct {
 	Number   int
 	Filename string
 	Path     string
@@ -34,8 +34,31 @@ type Content struct {
 	Value string `json:"value"`
 }
 
-func getContentFiles(baseDir string) map[int]AmaliahFile {
-	results := make(map[int]AmaliahFile)
+func (amaliah Amaliah) String() string {
+	bytes, err := json.Marshal(amaliah)
+
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	return string(bytes)
+}
+
+// All method to get all amaliah content
+func All() []Amaliah {
+	var results []Amaliah
+	contentProperties := getContentFiles(contentsDir)
+
+	for _, contentProperty := range contentProperties {
+		amaliah := readFromFile(contentProperty.Path)
+		results = append(results, amaliah)
+	}
+
+	return results
+}
+
+func getContentFiles(baseDir string) map[int]AmaliahContent {
+	results := make(map[int]AmaliahContent)
 
 	f, err := os.Open(fmt.Sprintf("./%s", baseDir))
 	if err != nil {
@@ -52,7 +75,7 @@ func getContentFiles(baseDir string) map[int]AmaliahFile {
 		sSlice := strings.Split(file.Name(), "-")
 		num, _ := strconv.Atoi(sSlice[0])
 
-		results[num] = AmaliahFile{
+		results[num] = AmaliahContent{
 			Number:   num,
 			Filename: file.Name(),
 			Path:     fmt.Sprintf("%s/%s", baseDir, file.Name()),
