@@ -75,3 +75,10 @@ func All() []Amaliah {
 
 	return results
 }
+
+// Get one amaliah content by number
+func Get(num int) Amaliah {
+	result := contents[num]
+
+	return result.Data()
+}
