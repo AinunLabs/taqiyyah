@@ -45,6 +45,17 @@ func (content AmaliahContent) Data() Amaliah {
 	return result
 }
 
+// Make json string with Stringers method
+func (amaliah Amaliah) String() string {
+	bytes, err := json.Marshal(amaliah)
+
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	return string(bytes)
+}
+
 func init() {
 	contents = make(map[int]AmaliahContent)
 	data, err := resources.AssetDir(contentsDir)
