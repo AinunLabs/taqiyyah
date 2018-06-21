@@ -9,7 +9,7 @@ import (
 
 // AmaliahItem struct
 type AmaliahItem struct {
-	Title    []Content `json:"title"`
+	Titles   []Content `json:"titles"`
 	Contents []Content `json:"contents"`
 	Number   int       `json:"number"`
 	Type     int       `json:"type"`
