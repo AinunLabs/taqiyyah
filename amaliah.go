@@ -57,6 +57,15 @@ func All() []Amaliah {
 	return results
 }
 
+// Get one amaliah content by number
+func Get(num int) Amaliah {
+	contentProperties := getContentFiles(contentsDir)
+
+	result := readFromFile(contentProperties[num].Path)
+
+	return result
+}
+
 func getContentFiles(baseDir string) map[int]AmaliahContent {
 	results := make(map[int]AmaliahContent)
 
