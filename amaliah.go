@@ -35,6 +35,16 @@ type Content struct {
 	Value string `json:"value"`
 }
 
+// Data method on AmaliahContent types
+func (content AmaliahContent) Data() Amaliah {
+	var result Amaliah
+	byteValue, _ := resources.Asset(content.Path)
+
+	json.Unmarshal(byteValue, &result)
+
+	return result
+}
+
 func init() {
 	contents = make(map[int]AmaliahContent)
 	data, err := resources.AssetDir(contentsDir)
@@ -60,11 +70,7 @@ func All() []Amaliah {
 	var results []Amaliah
 
 	for _, content := range contents {
-		var amaliah Amaliah
-		byteValue, _ := resources.Asset(content.Path)
-		json.Unmarshal(byteValue, &amaliah)
-
-		results = append(results, amaliah)
+		results = append(results, content.Data())
 	}
 
 	return results
