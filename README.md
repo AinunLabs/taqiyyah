@@ -53,7 +53,9 @@ import (
 
 func main() {
 	amaliah40 := amaliah.Get(40)
-	fmt.Println(amaliah40.Source)
+	fmt.Println(amaliah40.Titles[0].Value)
+	fmt.Println(amaliah40.Contents[0].Value)
+	fmt.Println(amaliah40.Contents[1].Value)
 }
 ```
 
