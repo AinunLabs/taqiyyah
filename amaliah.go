@@ -11,11 +11,11 @@ import (
 
 const contentsDir string = "contents"
 
-var contents map[int]AmaliahContent
+var contents map[float64]AmaliahContent
 
 // AmaliahContent struct
 type AmaliahContent struct {
-	Number   int
+	Number   float64
 	Filename string
 	Path     string
 }
@@ -24,7 +24,7 @@ type AmaliahContent struct {
 type Amaliah struct {
 	Titles   []Content `json:"titles"`
 	Contents []Content `json:"contents"`
-	Number   int       `json:"number"`
+	Number   float64   `json:"number"`
 	Type     int       `json:"type"`
 	Source   string    `json:"source"`
 }
@@ -57,7 +57,7 @@ func (amaliah Amaliah) String() string {
 }
 
 func init() {
-	contents = make(map[int]AmaliahContent)
+	contents = make(map[float64]AmaliahContent)
 	data, err := resources.AssetDir(contentsDir)
 	if err != nil {
 		fmt.Println(err)
@@ -65,7 +65,7 @@ func init() {
 
 	for _, filename := range data {
 		fSlice := strings.Split(filename, "-")
-		num, _ := strconv.Atoi(fSlice[0])
+		num, _ := strconv.ParseFloat(fSlice[0], 64)
 		path := fmt.Sprintf("%s/%s", contentsDir, filename)
 
 		contents[num] = AmaliahContent{
@@ -88,7 +88,7 @@ func All() []Amaliah {
 }
 
 // Get one amaliah content by number
-func Get(num int) Amaliah {
+func Get(num float64) Amaliah {
 	result := contents[num]
 
 	return result.Data()
