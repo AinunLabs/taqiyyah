@@ -7,13 +7,13 @@ Daftar konten diambil berdasarkan dari Buku Risalah Amaliah, konten digital diam
 Menggunakan Go Get
 
 ```cmd
-go get github.com/taqiyyah/amaliah
+go get github.com/letstaqwa/amaliah
 ```
 
 atau [Dep](https://golang.github.io/dep/)
 
 ```cmd
-dep ensure --add github.com/taqiyyah/amaliah
+dep ensure --add github.com/letstaqwa/amaliah
 ```
 
 ## Penggunaan
@@ -26,7 +26,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/taqiyyah/amaliah"
+	"github.com/letstaqwa/amaliah"
 )
 
 func main() {
@@ -48,7 +48,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/taqiyyah/amaliah"
+	"github.com/letstaqwa/amaliah"
 )
 
 func main() {
@@ -61,4 +61,4 @@ func main() {
 
 ## Kontribusi
 
-Konten mungkin saja terdapat perbedaan dan tidak selengkap seperti yang ada di dalam Buku Risalah Amaliah, bantu kami untuk memperbaiki dan melengkapinya dengan membuat [issue](https://github.com/taqiyyah/amaliah/issues) pada repository ini. Atau bagi Anda seorang Developer, silakan Fork dan buat Pull Request ke repository ini.
+Konten mungkin saja terdapat perbedaan dan tidak selengkap seperti yang ada di dalam Buku Risalah Amaliah, bantu kami untuk memperbaiki dan melengkapinya dengan membuat [issue](https://github.com/letstaqwa/amaliah/issues) pada repository ini. Atau bagi Anda seorang Developer, silakan Fork dan buat Pull Request ke repository ini.
